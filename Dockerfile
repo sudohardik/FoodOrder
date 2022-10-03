@@ -1,4 +1,5 @@
 FROM ubuntu
 RUN apt-get update
-ENTRYPOINT ["yum","install -y","httpd"]
+Run apt install -y httpd
+#ENTRYPOINT ["apt","install -y","httpd"]
 ENTRYPOINT ["service","httpd","start"]
