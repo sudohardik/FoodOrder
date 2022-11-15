@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: food-order
+  name: food-order-app
   labels:
-    app: web-app
+    app: food-order
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web-app
+      app: food-order
   template:
     metadata:
       labels:
-        app: web-app
+        app: food-order
     spec:
       containers:
-      - name: web-app
+      - name: food-order
         imagePullPolicy: Always
-        image: 127.0.0.1:9000/web-app:latest
+        image: food-order-image
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-app
+  name: food-order
 spec:
   selector:
-    app: web-app
+    app: food-order
   ports:
     - port: 80
       targetPort: 80
